@@ -3,7 +3,10 @@
         <h1>shouye</h1>
        <Header></Header>
 
-        <el-button type="primary" @click="test"></el-button>
+        <el-button type="primary" @click="test">创建房间</el-button>
+        <el-button type="primary" @click="test">加入面试</el-button>
+        <el-button type="primary" @click="test1">登陆</el-button>
+        <el-button type="primary" @click="test2">注册</el-button>
         <div>
     
   </div>
@@ -29,6 +32,15 @@ export default {
   methods: {
     test(){
       this.$router.push("/interview");
+    },
+    test3(){
+      this.$router.push("/interview");
+    },
+    test1(){
+      this.$router.push("/login");
+    },
+    test2(){
+      this.$router.push("/register");
     },
     createroom(){
       axios.post('http://localhost:8080/createroom', 1)

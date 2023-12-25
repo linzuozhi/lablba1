@@ -1,7 +1,7 @@
 
 <template>
     <div>
-      <h1>面试页面</h1>
+      <h1>视频面试</h1>
       <div class="content">
         <p>房间号：{{ usingroomnumber }}</p>
         <div class="camera">

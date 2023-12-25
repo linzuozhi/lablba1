@@ -1,8 +1,9 @@
 <template>
     <div>
     
-      <input type="text" id="roomNumber" v-model="roomNumber" placeholder="请输入房间号" />
-      <button @click="test">提交</button>
+      <el-input type="text" id="roomNumber" v-model="roomNumber" placeholder="请输入房间号" />
+      <el-button @click="test1">提交并进入视频面试</el-button>
+      <el-button @click="test2">提交并进入语音面试</el-button>
     </div>
   </template>
   
@@ -14,8 +15,11 @@
       };
     },
     methods: {
-        test(){
+        test1(){
             this.$router.push("/mianshi"); 
+        },
+        test2(){
+            this.$router.push("/tonghua"); 
         },
       submit() {
         

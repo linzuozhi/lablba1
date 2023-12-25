@@ -1,6 +1,6 @@
 <template>
     <div>
-      <h1>面试页面</h1>
+      <h1>语音面试</h1>
       <div class="content">
         <p>房间号：{{ usingroomnumber }}</p>
         <button @click="startInterview">开始面试</button>
