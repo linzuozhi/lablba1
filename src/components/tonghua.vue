@@ -48,6 +48,11 @@
           this.audioContext.close();
           this.audioContext = null;
         }
+        this.$message.success("本次面试已结束，3秒后将返回首页");
+        
+        setTimeout(() => {
+    this.$router.push("shouye");
+  }, 3000); // 延迟5秒执行页面跳转
       }
     }
   };

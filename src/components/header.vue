@@ -43,8 +43,8 @@ methods:{
 
   returntohome(){
     const currentRoute = this.$route.path;
-  if (currentRoute !== "/home") {
-    this.$router.push("home");
+  if (currentRoute !== "/shouye") {
+    this.$router.push("shouye");
   }
   },
   changeToUserData(){
@@ -59,12 +59,12 @@ methods:{
   if (!username) {
     this.$message.error("当前未登录");
     const currentRoute = this.$route.path;
-  if (currentRoute !== "/signin") {
-    this.$router.push("signin");
+  if (currentRoute !== "/login") {
+    this.$router.push("login");
   }
   } else {
     localStorage.setItem("username", "");
-    this.$router.push("signin")
+    this.$router.push("login")
     location.reload();
   }
 //     localStorage.setItem("username", "");

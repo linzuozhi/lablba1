@@ -11,7 +11,7 @@ import register from '../components/register.vue'
 import login from '../components/login.vue'
 Vue.use(VueRouter)
 const router = new VueRouter({
-routes:[{path:'/', redirect:"/shouye"},
+routes:[{path:'/', redirect:"/login"},
     {path:'/shouye',component:shouye,
 children:[
     {path:'/shouye/HelloWorld',component:HelloWorld}

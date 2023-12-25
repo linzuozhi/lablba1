@@ -1,12 +1,11 @@
 <template>
     <div id="shouye">
-        <h1>shouye</h1>
-       <Header></Header>
+        <h1>欢迎使用无象面试系统</h1>
 
-        <el-button type="primary" @click="test">创建房间</el-button>
+
+        <el-button type="primary" @click="createroom">创建房间</el-button>
         <el-button type="primary" @click="test">加入面试</el-button>
-        <el-button type="primary" @click="test1">登陆</el-button>
-        <el-button type="primary" @click="test2">注册</el-button>
+
         <div>
     
   </div>
@@ -17,7 +16,8 @@
 
 <script>
 import echarts from 'echarts'
-import Header from "../components/header.vue"
+
+import VueClipboard from 'vue-clipboard2';
 import axios from 'axios'
 export default {
     data() {
@@ -29,19 +29,17 @@ export default {
   mounted() {
     
   },
+
   methods: {
+
     test(){
+      // this.$copyText("123");
       this.$router.push("/interview");
     },
     test3(){
       this.$router.push("/interview");
     },
-    test1(){
-      this.$router.push("/login");
-    },
-    test2(){
-      this.$router.push("/register");
-    },
+   
     createroom(){
       axios.post('http://localhost:8080/createroom', 1)
     .then(response => {
@@ -50,9 +48,12 @@ export default {
 this.roomnumber=response.data;
 this.$copyText(this.roomnumber);
 this.$message.success(this.roomnumber);
-this.$message.success("创建房间成功，房间好已经复制到粘贴板，将跳转至面试间");
-this.$router.push("/interview");
-      // console.log('请求已发送，并将回复存储到localStorage');
+this.$message.success("创建房间成功，房间好已经复制到粘贴板，3秒将跳转至面试间");
+setTimeout(() => {
+  this.$router.push("/interview");
+  }, 3000); 
+
+
     })
     .catch(error => {
       console.error('请求发送失败', error);

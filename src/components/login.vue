@@ -5,7 +5,7 @@
         <div>
           <span>账号</span>
           <el-input
-            v-model="teacherAccount"
+            v-model="username"
             placeholder="请输入账号"
             class="tAcc"
           ></el-input>
@@ -21,7 +21,7 @@
         </div>
       </div>
       <div class="bot">
-        <div class="confirm">确认</div>
+        <div class="confirm" @click="submit">确认</div>
         <span class="register" @click=test
           >注册新账号</span
         >
@@ -29,11 +29,12 @@
     </div>
   </template>
   <script>
+  import axios from 'axios';
   export default {
     data() {
       return {
         password: "",
-        Account: "",
+        username: "",
       };
     },
     mounted() {
@@ -49,6 +50,26 @@
     methods: {
       test(){
 this.$router.push("register")
+      },
+      submit(){
+        const url = 'http://localhost:8080/login'; // 后端登录接口的URL
+  const data = {
+    username: this.username,
+    password: this.password
+  };
+
+  axios.post(url, data)
+    .then(response => {
+      // 登录成功，执行页面跳转
+      this.$message.success("登陆成功，将进入首页");
+      localStorage.setItem('username', this.username);
+      this.$router.push('shouye');
+    })
+    .catch(error => {
+      // 登录失败，处理错误情况
+      this.$message.error("登陆失败！"),
+      console.error('登录失败', error);
+    });
       }
     },
   };

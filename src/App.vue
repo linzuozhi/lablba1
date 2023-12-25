@@ -1,5 +1,6 @@
 <template>
   <div id="app" style="width: 100%; height: 100vh">
+    <Header></Header>
 <!--     
     <router-link to="/shouye">shouye </router-link><br>
     <router-link to="/r1">Rr1 </router-link><br>
@@ -16,6 +17,7 @@
 
 // import HelloWorld from './components/HelloWorld.vue'
 import chatgpt from './components/chatgpt.vue'
+import Header from "./components/header.vue"
 import axios from 'axios'
 import * as THREE from 'three'//导入样式
 import BIRDS from 'vanta/src/vanta.birds'//导入动态样式逻辑
@@ -24,7 +26,8 @@ export default {
   name: 'App',
   components: {
     // HelloWorld
-    chatgpt
+    chatgpt,
+    Header
   },
   mounted() {
     this.vantaEffect = BIRDS({
@@ -65,6 +68,6 @@ export default {
   text-align: center;
   /* background-color: aqua; */
   /* color: #2c3e50; */
-  margin-top: 60px;
+  /* margin-top: 60px; */
 }
 </style>
