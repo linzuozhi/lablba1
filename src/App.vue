@@ -1,9 +1,9 @@
 <template>
   <div id="app" style="width: 100%; height: 100vh">
-    
+<!--     
     <router-link to="/shouye">shouye </router-link><br>
     <router-link to="/r1">Rr1 </router-link><br>
-    <router-link to="/r2">Rr2 </router-link>
+    <router-link to="/r2">Rr2 </router-link> -->
     
     <router-view></router-view>
     <!-- <chatgpt></chatgpt> -->

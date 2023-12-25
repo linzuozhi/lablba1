@@ -1,16 +1,11 @@
 <template>
     <div id="shouye">
         <h1>shouye</h1>
-        <el-checkbox-group v-model="checkList">
-    <el-checkbox label="复选框 A"></el-checkbox>
-    <el-checkbox label="复选框 B"></el-checkbox>
-    <el-checkbox label="复选框 C"></el-checkbox>
-    <!-- <el-checkbox label="禁用" disabled></el-checkbox>
-    <el-checkbox label="选中且禁用" ></el-checkbox> -->
-  </el-checkbox-group>
+       <Header></Header>
+
         <el-button type="primary" @click="test"></el-button>
         <div>
-    <div ref="chart" style="width: 100%; height: 400px;align-items: center;"></div>
+    
   </div>
         <!-- <router-link to="/shouye/HelloWorld">HEllo</router-link>
         <router-view></router-view> -->
@@ -19,38 +14,37 @@
 
 <script>
 import echarts from 'echarts'
+import Header from "../components/header.vue"
+import axios from 'axios'
 export default {
     data() {
     return {
-        checkList: [],
-        chartData: {
-        xAxis: {
-          type: 'category',
-          data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-        },
-        yAxis: {
-          type: 'value'
-        },
-        series: [{
-          data: [820, 932, 901, 934, 1290, 1330, 1320],
-          type: 'line'
-        }]
-      }
-    
+       roomnumber:""
 
     }
   },
   mounted() {
-    this.initChart()
+    
   },
   methods: {
-    initChart() {
-        const chart = echarts.init(this.$refs.chart)
-      chart.setOption(this.chartData)
-    },
     test(){
-
-        console.log(JSON.stringify(this.checkList));
+      this.$router.push("/interview");
+    },
+    createroom(){
+      axios.post('http://localhost:8080/createroom', 1)
+    .then(response => {
+      // 将回复存储到localStorage
+      localStorage.setItem('reply', response.data);
+this.roomnumber=response.data;
+this.$copyText(this.roomnumber);
+this.$message.success(this.roomnumber);
+this.$message.success("创建房间成功，房间好已经复制到粘贴板，将跳转至面试间");
+this.$router.push("/interview");
+      // console.log('请求已发送，并将回复存储到localStorage');
+    })
+    .catch(error => {
+      console.error('请求发送失败', error);
+    });
     }
   },
 }
