@@ -1,5 +1,5 @@
 <template>
-    <div id="shouye">
+    <!-- <div id="shouye">
         <h1>欢迎使用无象面试系统</h1>
 
 
@@ -9,9 +9,24 @@
         <div>
     
   </div>
-        <!-- <router-link to="/shouye/HelloWorld">HEllo</router-link>
-        <router-view></router-view> -->
+        
+    </div> -->
+    <div class="app-container">
+    <div id="shouye">
+      
+      <h1>欢迎使用无象面试系统</h1>
+      <Header></Header>
+      <div class="buttons">
+        <el-button type="primary" @click="createroom">创建房间</el-button>
+        <el-button type="primary" @click="test">加入面试</el-button>
+        <!-- <el-button type="primary" @click="test1">登录</el-button>
+        <el-button type="primary" @click="test2">注册</el-button> -->
+      </div>
+
+    
+
     </div>
+  </div>
 </template>
 
 <script>
@@ -63,9 +78,26 @@ setTimeout(() => {
 }
 </script>
 <style>
-.shouye{
+.app-container {
+    background-color: #ffeeaf; /* 这里设置淡黄色的背景色 */
+    min-height: 100vh; /* 保证容器至少占据整个视口高度 */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+/* .shouye{
 
 
   background-color: aquamarine;
+} */
+#shouye {
+  text-align: center;
+  padding: 20px;
+}
+
+.buttons {
+  margin-top: 20px;
+  
 }
 </style>

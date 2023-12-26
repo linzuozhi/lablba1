@@ -1,6 +1,6 @@
 
 <template>
-    <div>
+    <!-- <div>
       <h1>视频面试</h1>
       <div class="content">
         <p>房间号：{{ usingroomnumber }}</p>
@@ -9,6 +9,20 @@
         </div>
         <button @click="startInterview">开始面试</button>
         <button @click="stopInterview">关闭面试</button>
+      </div>
+    </div> -->
+    <div class="app-container">
+      <h1>视频面试</h1>
+      <header></header>
+      <div class="content">
+        <p>房间号：{{ usingroomnumber }}</p>
+        <div class="camera-container">
+          <video ref="videoRef" autoplay></video>
+        </div>
+        <div class="button-container">
+          <button @click="startInterview" class="primary-button">开始面试</button>
+          <button @click="stopInterview" class="danger-button">关闭面试</button>
+        </div>
       </div>
     </div>
   </template>
@@ -56,8 +70,55 @@
     }
   };
   </script>
-  
   <style>
+  .content {
+    margin-top: 20px;
+  }
+  
+  .camera-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+    border: 1px solid black;
+    overflow: hidden;
+  }
+  
+  .camera-container video {
+    width: 100%;
+  }
+  
+  .button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .primary-button {
+    background-color: #4285f4;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .danger-button {
+    background-color: #ea4335;
+    color: #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .app-container {
+    background-color: #ffeeba;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  </style>
+  <!-- <style>
   .content {
     margin-top: 20px;
   }
@@ -67,7 +128,7 @@
     height: 300px;
     border: 1px solid black;
   }
-  </style>
+  </style> -->
 <!-- <template>
     <div>
       <h1>面试页面</h1>

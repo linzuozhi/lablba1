@@ -1,12 +1,21 @@
 <template>
-    <div>
+    <!-- <div>
       <h1>语音面试</h1>
       <div class="content">
         <p>房间号：{{ usingroomnumber }}</p>
         <button @click="startInterview">开始面试</button>
         <button @click="stopInterview">关闭面试</button>
       </div>
+    </div> -->
+    <div class="app-container">
+    <h1 class="biaoti">语音面试</h1>
+    <p >房间号：{{ usingroomnumber }}</p>
+    <div class="content">
+      
+      <el-button class="start-button" type="primary" @click="startInterview">开始面试</el-button>
+      <el-button class="stop-button" type="danger" @click="stopInterview">关闭面试</el-button>
     </div>
+  </div>
   </template>
   
   <script>
@@ -59,7 +68,25 @@
   </script>
   
   <style>
-  .content {
+.content {
     margin-top: 20px;
+    margin-top: 100px; /* 增加顶部间距 */
+  margin-bottom: 30px; /* 增加底部间距 */
   }
+  .app-container {
+  background-color: #ffeeba; /* 这里设置淡黄色的背景色 */
+  min-height: 100vh; /* 保证容器至少占据整个视口高度 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.biaoti {
+  margin-bottom: 40px; /* 增加间隔 */
+}
+.start-button,
+.stop-button {
+  padding: 20px 50px; /* 增加按钮的内边距，调整按钮大小 */
+  margin-top: 10px; /* 增加按钮之间的间隔 */
+}
   </style>
